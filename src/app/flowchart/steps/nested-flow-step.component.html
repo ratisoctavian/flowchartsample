@@ -1,0 +1,8 @@
+<div class="nested-flow-step" [style.border-color]="data.color" #canvasContent>
+  <div class="d-flex pb-2">
+    <mat-icon color="accent">{{data.icon}}</mat-icon>
+    <span class="ps-2">{{ data.title }}</span>
+  </div>
+  <div ngFlowchartCanvas [ngFlowchartCallbacks]="callbacks" class="nested-canvas-content">
+  </div>
+</div>
