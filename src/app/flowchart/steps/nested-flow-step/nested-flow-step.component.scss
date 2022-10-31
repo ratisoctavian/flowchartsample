@@ -1,0 +1,57 @@
+@import '../../../../styles/mixins';
+
+.nested-flow-step.ngflowchart-step-wrapper{
+  background: transparent;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0px 0px 1em;
+  min-width: 232px;
+  min-height: 182px;
+  border-radius: 0!important;
+  // overflow: hidden;
+  // resize: both;
+  border: 2px dashed #b5d3df;
+  box-shadow: none;
+
+  .nested-flow-wrapper{
+    position: relative;
+    padding-top: 15px;
+    &::after{
+      position: absolute;
+      width: 50%;
+      top: -55px;
+      left: 50%;
+      border-left: 2px solid rgb(176 196 201);
+      // border-bottom: none;
+      // border-right: none;
+      height: 70px;
+      content:""
+    }
+
+    .nested-flow-content {
+        @include flow-scrollbar;
+        display: flex;
+        overflow: auto;
+        background-color: transparent;
+        border:2px dashed #b5d3df;
+        min-width: 220px;
+        min-height: 150px;
+        resize: both;
+        overflow: hidden;
+
+      //  &::before{
+      //   position: absolute;
+      //   top: -10px;
+      //   left: calc(50% - 13px);
+      //   content: "▾";
+      //   display: block;
+      //   color: gray;
+      //   font-size: 28px;
+      //   left: calc(50% - 11px);
+      // }
+    }
+  }
+}
+
+

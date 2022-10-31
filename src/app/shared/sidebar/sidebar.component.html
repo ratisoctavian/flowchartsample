@@ -1,0 +1,21 @@
+<div class="flex-row d-flex h-100">
+    <div class="sidebar h-100" [class.d-none]="!isSidebarOpen()">
+        <ng-content></ng-content>
+    </div>
+
+    <div
+        class="closebutton d-flex"
+        role="button"
+        (click)="toggleSidebarOpen()"
+        [class.collapsed]="!isSidebarOpen()"
+    >
+        <mat-icon
+            class="px-0 py-5"
+            *ngIf="isSidebarOpen()"
+        >chevron_left</mat-icon>
+        <mat-icon
+            class="px-0 py-5"
+            *ngIf="!isSidebarOpen()"
+        >chevron_right</mat-icon>
+    </div>
+</div>

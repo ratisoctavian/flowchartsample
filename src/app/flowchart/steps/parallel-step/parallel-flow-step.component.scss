@@ -1,0 +1,86 @@
+@import '../../../../styles/mixins';
+
+.parallel-flow-step.ngflowchart-step-wrapper{
+  @include flow-scrollbar;
+  background: transparent;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  min-width: 432px;
+  min-height: 182px;
+  border-radius: 0!important;
+  border: 2px dashed #b5d3df;
+  box-shadow: none;
+  // resize: both;
+  // overflow: auto;
+
+  &::before{
+    z-index: 1000;
+  }
+  &::after{
+    z-index: 1000;
+  }
+
+  .parallel-flow-wrapper{
+    position: relative;
+    padding-top: 15px;
+    &::after{
+      position: absolute;
+      width: 50%;
+      top: -10px;
+      border: 2px solid rgb(176 196 201);
+      border-bottom: none;
+      height: 17px;
+      content:""
+    }
+    &.parallel-flow-wrapper-left::after{
+      left: 50%;
+      border-right: none;
+    }
+    &.parallel-flow-wrapper-right::after{
+      right: 50%;
+      border-left: none;
+    }
+    &.parallel-flow-wrapper-left::before{
+      position: absolute;
+      top: -55px;
+      right: -1px;
+      content: "";
+      display: block;
+      color: rgb(176, 196, 201);
+      font-size: 28px;
+      border: 1px solid;
+      width: 2px;
+      height: 45px;
+    }
+
+    .parallel-flow-content {
+       @include flow-scrollbar;
+       display: flex;
+       overflow: auto;
+       background-color: transparent;
+       border:2px dashed #b5d3df;
+       min-width: 220px;
+       min-height: 150px;
+       resize: both;
+       overflow: hidden;
+
+       &::before{
+        position: absolute;
+        top: -10px;
+        left: calc(50% - 13px);
+        content: "▾";
+        display: block;
+        color: gray;
+        font-size: 28px;
+      }
+    }
+
+    &.parallel-flow-wrapper-left .parallel-flow-content::before{
+      left: calc(50% - 11px);
+    }
+  }
+
+}
+
+

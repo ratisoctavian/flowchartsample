@@ -1,0 +1,72 @@
+<form autocomplete="off" class="w-100 h-100" [formGroup]="editFormGroup" *ngIf="step">
+  <div class="d-flex flex-column">
+    <div class="mb-1 pt-3">
+        <div class="title">Properties <div class="subtitle">{{ stepConfig.name }}</div></div>
+
+    </div>
+    <div class="template flex-fill pb-2 pt-3" *ngIf="editFormGroup">
+        <div class="d-flex flex-column" *ngFor="let field of stepConfig.fields| keyvalue:originalOrder">
+          <ng-container [ngSwitch]="field.value.type">
+
+            <!-- multiline -->
+            <mat-form-field appearance="outline" color="primary" *ngSwitchCase = "'multiline'">
+              <mat-label>{{ field.value.label }}</mat-label>
+                <textarea *ngSwitchCase = "'multiline'"
+                    type="text"
+                    spellcheck="false" rows="2"
+                    matInput
+                    formControlName="{{field.key}}"
+                ></textarea>
+            </mat-form-field>
+
+            <!-- date -->
+            <mat-form-field appearance="outline" color="primary" *ngSwitchCase = "'date'">
+            <mat-label>{{ field.value.label }}</mat-label>
+                <input
+                    matInput
+                    [matDatepicker]="datePicker"
+                    formControlName="{{field.key}}"
+                    autocomplete="off"
+                />
+                <mat-datepicker-toggle [for]="datePicker" matSuffix>
+                  <mat-icon matDatepickerToggleIcon> event </mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
+            </mat-form-field>
+
+            <!-- default input -->
+            <mat-form-field appearance="outline" color="primary" *ngSwitchDefault>
+                <mat-label>{{ field.value.label }}</mat-label>
+                  <!-- default input -->
+                  <input *ngSwitchDefault
+                      type="text"
+                      matInput
+                      formControlName="{{field.key}}"
+                    />
+            </mat-form-field>
+
+          </ng-container>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-center pt-4 template-buttons"  [class.opacity-0]= "!editMode">
+      <button
+            (click)="save()"
+            class="template-button me-2"
+            mat-flat-button
+            type="submit"
+          >
+          <mat-icon class="me-2">save</mat-icon>Save
+        </button>
+        <button
+            (click)="cancel()"
+            class="template-button"
+            mat-flat-button
+            type="button"
+        >
+          Cancel
+        </button>
+    </div>
+
+  </div>
+</form>

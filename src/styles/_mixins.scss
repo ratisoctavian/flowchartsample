@@ -1,0 +1,26 @@
+  @mixin box-shadow($shadow: $gray-box-shadow) {
+    -webkit-box-shadow: $shadow!important;
+    box-shadow: $shadow!important;
+    -moz-box-shadow: $shadow!important;
+  }
+
+  @mixin flow-scrollbar{
+    &::-webkit-scrollbar-thumb {
+      background-color: #b1b1b136;
+      border-left: none;
+      border-right: none;
+  }
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(5, 117, 143, 0.15);
+    }
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background: transparent;
+        border-radius: 0px;
+    }
+      /*Mozilla Firefox*/
+      scrollbar-color: #b1b1b136 transparent;
+      scrollbar-width:thin;
+  }
+

@@ -1,0 +1,104 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+
+.toolbox {
+  width: 400px;
+  background-color: rgb(119 158 167 / 14%);
+
+   .toolbox-item {
+      user-select: none;
+      display: block;
+      margin-bottom: 8px;
+      background-color: white;
+      box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
+
+    &:hover {
+      background:#f1f1f1
+    }
+  }
+}
+
+.canvas-wrapper{
+  background-color: rgb(119 158 167 / 14%);
+
+  .canvas {
+    @include flow-scrollbar;
+    background-color: rgb(202 217 219 / 13%);
+    background-size: 30px 30px;
+    background-image: linear-gradient(to right, #aec5d333 1px, transparent 1px), linear-gradient(to bottom, #aec5d333 1px, transparent 1px);
+
+    &[disabled="true"] {
+      opacity: .7;
+      ::ng-deep.ngflowchart-step-wrapper {
+        opacity: .7;
+      }
+    }
+
+    ::ng-deep .ngflowchart-step-wrapper{
+      box-shadow: 0px 3px 3px -1px rgb(0 0 0 / 3%);
+      border: 1px solid #96bdc96b;
+    }
+
+    ::ng-deep .ngflowchart-arrow {
+      g{
+        stroke: rgb(176 196 201);
+      }
+    }
+  }
+}
+
+
+
+
+section {
+  padding: 1em;
+  border-bottom: 1px solid lightgrey;
+
+  .wide {
+    width: 100%;
+}
+}
+
+
+.sub-section {
+  padding: 0.5em 0;
+}
+
+select {
+  padding: 0.3em;
+}
+
+
+.title{
+  color:$primary-color;
+  font-size: 17px;
+  border-bottom: 3px solid rgba(5, 117, 143, 0.2);
+}
+
+.mat-slider{
+  margin-top: -5px;
+}
+
+.mat-mini-fab{
+  color:white;
+  &.clear-button{
+    background-color: #a82978;
+  }
+}
+
+// context-menu
+::ng-deep .mat-menu-panel {
+  min-height: 0 !important;
+}
+::ng-deep .mat-menu-content:not(:empty) {
+  padding-top: 0px!important;
+  padding-bottom: 0px!important;
+  .mat-menu-item{
+    height:36px;
+    line-height: 36px;
+    .mat-icon{
+      font-size: 21px;
+    }
+  }
+}

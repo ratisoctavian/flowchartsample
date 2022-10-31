@@ -1,0 +1,29 @@
+:host {
+    position: relative;
+}
+
+.closebutton {
+    color: #b5b5b5;
+    background-color: #dfdfdfc4;
+    z-index: 999;
+    transition: 0.25s;
+
+    &:hover {
+      background-color: #dfdfdf;
+    }
+
+    mat-icon {
+        height: unset;
+        width: unset;
+
+        &:hover {
+          color: gray
+        }
+    }
+}
+
+.sidebar {
+  background-color: #ededed;
+  color:rgb(0, 0, 0);
+  height: 100%;
+}

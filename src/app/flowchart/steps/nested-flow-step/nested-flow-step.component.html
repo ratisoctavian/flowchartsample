@@ -1,0 +1,27 @@
+<div class="nested-flow-step p-2" #canvasContent (click)="onClick($event)" (contextmenu)="onRightClick($event);">
+  <div class="d-flex pb-2">
+    <mat-icon class="fs-5" [style.color] = "stepConfig.color || 'black'">{{stepConfig.icon}}</mat-icon>
+    <span class="ps-2">{{ stepConfig.name }}</span>
+  </div>
+  <div class="nested-flow-wrapper m-3">
+    <div ngFlowchartCanvas [ngFlowchartCallbacks]="callbacks" [disabled]="disabled" class="nested-flow-content">
+    </div>
+  </div>
+</div>
+
+<!-- context menu  -->
+<!-- An hidden div is created to set the position of appearance of the menu-->
+<div style="visibility: hidden; position: fixed;"
+      [style.left]="menuTopLeftPosition.x"
+      [style.top]="menuTopLeftPosition.y"
+      [matMenuTriggerFor]="menu">
+ </div>
+ <mat-menu #menu="matMenu" xPosition="after">
+   <ng-template matMenuContent let-item="item">
+     <button mat-menu-item
+       (click)="onRemove()">
+       <mat-icon>delete</mat-icon>
+       <span>{{ 'Delete' }}</span>
+     </button>
+   </ng-template>
+ </mat-menu>

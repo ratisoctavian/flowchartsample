@@ -1,0 +1,71 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+:host{
+  height: 100%;
+}
+
+.toolbox {
+  min-width: 300px;
+  background-color: rgb(119 158 167 / 14%);
+
+   .toolbox-item {
+      user-select: none;
+      display: block;
+      margin-bottom: 8px;
+      background-color: white;
+      box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
+
+    &:hover {
+      background:#f1f1f1
+    }
+  }
+
+}
+
+section {
+  padding: 1em;
+  border-bottom: 1px solid lightgrey;
+
+  .wide {
+    width: 100%;
+  }
+}
+
+.sub-section {
+  padding: 0.5em 0;
+}
+
+select {
+  padding: 0.3em;
+}
+
+.title{
+  color:$primary-color;
+  font-size: 17px;
+  border-bottom: 3px solid rgba(5, 117, 143, 0.2);
+}
+
+
+.step {
+  padding: 1em;
+  background: white;
+  box-shadow: 0px 2px 2em rgba(22, 33, 74, 0.1);
+  min-width: 12em;
+  height: 4em;
+  border:1px solid rgb(233 233 233);
+  border-radius: 0!important;
+
+  .mat-icon{
+    color: rgb(41, 132, 168);
+    font-size: 20px;
+  }
+}
+
+
+.item-left{
+  width:40px;
+  opacity: 0.1;
+  background-color: #858585;
+}
+

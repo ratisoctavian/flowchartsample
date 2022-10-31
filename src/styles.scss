@@ -1,6 +1,10 @@
 @import '../src/styles/material_theme';
-
-@import 'src/variables';
+@import '../src/styles/variables';
+@import '../src/styles/mixins';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+}
